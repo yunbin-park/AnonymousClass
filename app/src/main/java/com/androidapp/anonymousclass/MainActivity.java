@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     Button mButton1;
     TextView mTextView1;
 
@@ -19,13 +19,11 @@ public class MainActivity extends AppCompatActivity {
         mButton1 = findViewById(R.id.button1);
         mTextView1 = findViewById(R.id.textView1);
 
-        mButton1.setOnClickListener(new MyOnClickListener());
+        mButton1.setOnClickListener(this);
     }
 
-    private class MyOnClickListener implements View.OnClickListener {
-        @Override
-        public void onClick(View v) {
-            mTextView1.setText("You clicked button 1");
-        }
+    @Override
+    public void onClick(View v) {
+        mTextView1.setText("You clicked button 1");
     }
 }
